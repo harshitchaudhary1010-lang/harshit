@@ -1,0 +1,12 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { ShieldCheck, Users, Eye, ExternalLink } from 'lucide-react';
+import { PortalShell, PageIntro, DemoNotice } from '@/components/portal-shell';
+import { Button } from '@/components/ui/button';
+import { pageHead } from '@/lib/candidates';
+export const Route = createFileRoute('/about')({
+  head: () => pageHead('About the portal', 'VoteInfo Nepal is an independent, information-only election portal. Learn about its purpose and demonstration data.'),
+  component: About,
+});
+function About() {
+  return <PortalShell><PageIntro eyebrow="INFORMED CITIZENS. STRONGER DEMOCRACY." title="About VoteInfo Nepal" description="Making election information easier to explore and understand."/><div className="site-width py-12"><div className="max-w-2xl"><h2 className="section-heading">Information for an informed Nepal.</h2><p className="mt-5 text-base leading-8 text-muted-foreground">VoteInfo Nepal brings candidate profiles, constituencies, and announcements together in one accessible place. Our purpose is to help citizens learn about their representatives and make informed choices.</p></div><div className="my-10 grid gap-8 border-y border-border py-9 md:grid-cols-3">{[{ icon: Eye, title: 'Transparent information', text: 'Sample records are clearly marked. No fictional profile is presented as real election information.' }, { icon: Users, title: 'Open to everyone', text: 'Browse and search the public directory without creating an account.' }, { icon: ShieldCheck, title: 'Information, not voting', text: 'We never collect votes, issue ballots, or request voter identification.' }].map(item => <div key={item.title}><item.icon className="mb-4 size-6 text-primary"/><h3 className="font-semibold">{item.title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{item.text}</p></div>)}</div><DemoNotice/><h2 className="mt-10 text-xl font-bold">Verify with official sources</h2><p className="mt-3 text-sm leading-7 text-muted-foreground">This portal is not affiliated with the Election Commission of Nepal. For current election dates, registration, polling locations, and results, consult official sources.</p><Button asChild variant="outline" className="mt-5"><a href="https://election.gov.np" target="_blank" rel="noopener noreferrer">Visit the Election Commission<ExternalLink/></a></Button></div></PortalShell>;
+}

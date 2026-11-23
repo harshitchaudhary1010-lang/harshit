@@ -1,0 +1,5 @@
+export const announcements = [
+  { id: 'directory', day: '20', month: 'NOV', date: 'November 20, 2026', category: 'Directory update', title: 'Sample candidate directory is now available', body: 'The demonstration directory includes six fictional profiles across five constituencies. These records are for testing and do not describe a real election.', style: 'info' },
+  { id: 'voter', day: '18', month: 'NOV', date: 'November 18, 2026', category: 'Voter information', title: 'Check your voter registration through official sources', body: 'For current registration requirements, voter lists, polling locations, and election dates, consult the Election Commission of Nepal. This portal does not provide official registration services.', style: 'success' },
+  { id: 'notice', day: '15', month: 'NOV', date: 'November 15, 2026', category: 'Portal notice', title: 'A reminder: this is an information-only portal', body: 'VoteInfo Nepal does not collect votes, issue ballots, or process voter identification. All demonstration announcements are illustrative; verify real election information with official sources.', style: 'warning' },
+] as const;

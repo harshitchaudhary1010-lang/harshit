@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+- Preserve TanStack Start and its file-based routes; this hosting environment does not support replacing the framework with Express or React Router.
+- Use the existing deployed REST API via `VITE_API_URL` when provided; do not provision a replacement database or change AWS infrastructure without the user's approval.
+- With no API URL, use explicitly labeled, session-only demo data in the shared Query cache; demo edits must never be represented as persistent database writes.
+- Keep candidate validation, API normalization, and query options in the shared candidates module so all directory and management views use the same contract.
